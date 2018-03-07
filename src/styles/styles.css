@@ -1,0 +1,1392 @@
+.glyphicon,
+.form-control,
+.btn,
+.transition,
+.has-transition,
+a {
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.container {
+    width: 100%!important;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow:hidden;
+}
+hr {
+    margin: 2px!important;
+}
+.App {
+    height: 100%;
+    font-size: 1.8vh;
+    background-image: linear-gradient(rgba(4, 4, 4, 0.5), rgba(4, 4, 4, 0.5)), url(../images/bg1.jpg);
+   
+    /*background-image: url(https://livedemo00.template-help.com/wt_62196_1/images/background-01-1920x900.jpg);*/
+}
+
+textarea
+{
+    resize: none;
+}
+/*login*/
+
+a {
+    text-decoration: none;
+    transition: all .3s ease 0s;
+    -moz-transition: all .3s ease 0s;
+    -webkit-transition: all .3s ease 0s;
+    -o-transition: all .3s ease 0s;
+}
+body {
+    font-family: "Lato", Helvetica, Arial, sans-serif!important;
+    background-repeat: no-repeat;
+    background-position: center center;
+   
+    /*background-image: linear-gradient(rgba(4,4,4,0.5),rgba(4,4,4,0.5)),url(https://static.pexels.com/photos/34631/pexels-photo.jpg);*/
+    
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.logincontainer
+{
+    background-image: linear-gradient(rgba(4, 4, 4, 0.5), rgba(4, 4, 4, 0.5)), url(../images/bg.jpg);
+   
+}
+.login {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);   
+}
+.login .form-control {
+    font-size: 14px;
+}
+#heading {
+    background-image: url(../images/elektraorion.png);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+#heading h1 {
+    text-align: center;
+    padding-top: 58px;
+    padding-bottom: 20px;
+    color: #fff;
+    font-size: 28px;
+    margin: 0;
+    /*opacity: 0.8;*/
+}
+.form-signin {
+    max-width: 420px;
+    padding: 10px 24px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 6px;
+    opacity: 0.9;
+}
+.form-signin-heading {
+    color: #333;
+    text-align: center;
+    margin: 20px auto;
+}
+.form-signin-heading h2 {
+    font-size: 28px;
+}
+.form-signin-heading p {
+    margin-top: 24px;
+    font-size: 12px;
+    color: red;
+    text-align: left;
+}
+.form-signin .btn-primary {
+    font-size: 14px;
+    color: #fff;
+    background-color: #ec0080;
+    border-color: #ec0080;
+    outline: 0;
+    margin-top: 40px;
+}
+.form-signin .btn-primary:hover {
+    opacity: 0.9;
+}
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-color: #ec0080;
+    border-color: #ec0080;
+    outline: none;
+}
+.form-signin .form-control {
+    margin: 20px auto;
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+.form-signin .form-control:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #333;
+}
+.form-signin .usr {
+    background-image: url(../images/name_icon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.form-signin .pw {
+    background-image: url(../images/password_icon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+footer {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+footer img {
+    display: none;
+}
+@media (min-width: 768px) {
+    /*.login{
+    	margin-top: 200px;
+      margin-bottom: 200px;
+	}*/
+    
+    .form-signin {
+        padding: 30px 38px 66px;
+    }
+    #heading h1 {
+        font-size: 36px;
+    }
+    .form-signin-heading h2 {
+        font-size: 38px;
+    }
+    footer img {
+        display: block;
+    }
+}
+@media (min-width: 990px) {
+    .form-signin {
+        padding: 30px 38px 66px;
+    }
+}
+#loading {
+    position: fixed;
+    z-index: 999;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #4b4943;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    transform: translate(-50%, -50%);
+    margin-left: -20px;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* bar colors*/
+
+.ay {
+    background: #B5CC9D;
+}
+.ls {
+    background: #4CA5AF;
+}
+.junior {
+    background-image: linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -o-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -moz-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -webkit-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -ms-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+::-webkit-scrollbar:vertical {
+    width: 20px;
+    ;
+}
+::-webkit-scrollbar:horizontal {
+    height: 2vh;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border: 2px solid #888;
+}
+::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: #ccc;
+}
+/* signalR notification*/
+
+#alert_placeholder {
+    margin: 0px;
+    left: 35%;
+    width: 30%;
+    padding: 0px;
+    position: absolute;
+}
+/*header*/
+
+.logo {
+    width: 60px;
+}
+header {
+    height: 60px;
+    padding: 5px 10px;
+    text-align: center;
+    border-bottom: solid 1px #CCC;
+    /*background:#a7b9a5;*/
+}
+header img {
+    float: left;
+    margin-right: 10px;
+}
+#menu-ham {
+    display: none;
+}
+#menu-ham i {
+    border: solid 1px;
+    padding: 10px;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin-left: 10px;
+}
+.mainmenu .glyphicon {
+    font-size: 20px;
+    top: 2px;
+    color: white;
+}
+.menu-link {
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    margin: 10px;
+    float: left;
+    border: 1px bottom solid;
+}
+.title {
+    float: left;
+    font-size: 28px;
+    color: #fff;
+    font-weight: bolder;
+    margin-left: 30px;
+    margin-top: 7px;
+}
+.top-menu {
+    float: left;
+    margin-left: 200px;
+}
+nav {
+    text-transform: uppercase;
+    float: left;
+    margin-left: 20px;
+    color: #333;
+}
+.quicklinks {
+    float: right;
+    margin-top: 10px;
+}
+.quicklinks li.mainmenu {
+    float: left;
+    font-size: 20px;
+    float: left;
+    margin-left: 20px;
+    position: relative;
+}
+.quicklinks .profile span {
+    position: relative;
+    top: -30px;
+    font-size: 2vh;
+}
+.quicklinks .submenu {
+    display: none;
+}
+.quicklinks .mainmenu:hover .submenu {
+    display: block;
+}
+.quicklinks a.profile.profile-mob {
+    display: none;
+}
+.quicklinks a.profile {
+    font-size: 20px;
+    position: relative;
+    top: -1px;
+}
+#profilemenu {
+    position: absolute;
+    right: 0px;
+    border: solid 1px #fff;
+    z-index: 999;
+    background: #fff;
+    font-size: 1.5vh;
+    width: 300px;
+    text-align: left;
+    width: 150px;
+}
+#profilemenu ul li {
+    text-align: left;
+    text-transform: uppercase;
+    border: solid 1px #aaa;
+}
+.s-1 {
+    font-size: 14px;
+    padding-left: 10px;
+}
+.quicklinks .submenu a {
+    display: block;
+    padding: 10px;
+    font-size: 1.5vh;
+    color: #000;
+}
+.quicklinks .submenu a:hover {
+    background-color: #f4f4f4;
+}
+header a {
+    color: #fff;
+}
+header a.profile {
+    font-size: 1.8vh;
+}
+.button__badge {
+    background-color: #fa3e3e;
+    border-radius: 2px;
+    color: white;
+    padding: 1px 3px;
+    font-size: 1vh;
+    position: absolute;
+    /* Position the badge within the relatively positioned button */
+    
+    top: 0;
+    right: 0;
+}
+.hidden-mob {
+    display: block !important;
+}
+.hidden-desk {
+    display: none !important;
+}
+.hidden-mob-inline {
+    display: inline !important;
+}
+.hidden-desk-inline {
+    display: none !important;
+}
+/* search */
+
+.search {
+    background-color: #fff;
+    color: #000;
+    height: 60px;
+    padding: 10px 5px;
+    border-bottom: 1px solid #ccc;
+}
+.flight-search {
+    height: 170px;
+}
+.search-param {
+    margin: 2px 10px;
+    display: inline-block;
+    color: #000;
+    height: auto;
+    font-weight: normal;
+    width:100%;
+}
+.search .form-group {
+    margin-bottom: 0px!important;
+}
+.search .list-unstyled {
+    margin: 0;
+    height:37px;
+}
+.search .list-unstyled li {
+    display: inline-block;
+    margin-top: 4px;
+    vertical-align: middle;
+}
+.search .list-unstyled-field {
+    width: 10%;
+}
+.search .list-unstyled-check {
+    margin-left: 10px;
+    width: 15%;
+}
+.search .list-unstyled-check input[type=checkbox] {
+    margin-right: 10px;
+}
+.pull-right {
+    margin-right: 10px;
+}
+.search .list-unstyled-value {
+    width: 12%;
+}
+.form-control {
+    font-size: 14px;
+    width: 100%!important;
+    height: 30px;
+    margin-bottom: 2px;
+}
+.allocated-input .form-control {
+    font-size: 12px;
+    width: 90%!important;
+    height: 30px;
+    margin-bottom: 2px;
+}
+.react-flux {
+    width: 75%;
+}
+.react-date-field {
+    background-color: white;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+}
+.react-date-field__input {
+    height: 28px;
+    border-radius: 4px;
+    width: 70%;
+}
+.react-date-field__picker {
+    background-color: white;
+    right: -1px!important;
+    left: -100px!important;
+    font-size: 10px!important;
+}
+.react-date-picker__month-view--theme-default .react-date-picker__month-view-day .react-date-picker__month-view-day-text {
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    min-width: 25px;
+    min-height: 25px;
+    max-width: 25px;
+    max-height: 25px;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.react-date-picker__month-view--theme-default .react-date-picker__month-view-cell {
+    min-width: 30px;
+}
+
+.react-date-picker__decade-view--theme-default .react-date-picker__decade-view-year
+{
+    padding:0px!important;
+}
+/* kpi */
+
+.kpi {
+    color: white;
+    height: 30px;
+    padding: 0.5rem;
+    display: inline-block;
+    margin: 5px;
+}
+.kpi .form-group {
+    float: right;
+    margin-right: 10px;
+}
+/*taxi section*/
+
+.glyphicon {
+    border: 1px;
+    background-color: transparent;
+    padding: 1px;
+}
+.allocation {
+    height: 77%;
+    height: calc(100vh - 160px);
+    height: -webkit-calc(100vh - 160px);
+    height: -moz-calc(100vh - 160px);
+}
+.allocated-student-detail {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+.allocated-student-detail span {
+    margin-left: 1vw;
+}
+.even {
+    float: right;
+    width: 49%;
+    background: white;
+    margin: 1px;
+    height: 25px;
+    padding-left: 10px;
+}
+.odd {
+    float: left;
+    width: 49%;
+    background: white;
+    margin: 1px;
+    height: 25px;
+    padding-left: 10px;
+}
+/*unallocated section*/
+
+#unallocated {
+    float: right;
+    width: 25%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*background-color:#bdc3c7*/
+}
+.white {
+    color: white;
+}
+.unallocated-student-list {
+    height: 92%;
+}
+.unallocated-top {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5px 0px;
+}
+.unallocated-top .form-group {
+    margin: 5px 0px;
+}
+.unallocated-student {
+    width: 90% !important;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 1px;
+    color: #fff;
+    display: inline-block;
+}
+.unallocated-student-drag {
+    border-radius: 1px;
+    color: #fff;
+    display: inline-block;
+}
+.unallocated-student-detail {
+    width: 100%;
+    float: left;
+    padding-left: 1vh;
+}
+.modified-student {
+    width: 98% !important;
+    margin: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 1px;
+    color: #fff;
+    display: inline-block;
+}
+.modified-student-detail {
+    margin-left: 20px;
+    width: 60%!important;
+    float: left;
+}
+.modified-student-detail-button {
+    width: 35%!important;
+    float: left;
+}
+.modified-student-detail-button .btn {
+    margin-left: 2px;
+    padding: 6px;
+}
+.red-warning {
+    color: red;
+}
+.unallocated-student-checkbox {
+    width: 10%;
+    float: left;
+    opacity: 0.9;
+}
+.unallocated-student-checkbox input {
+    margin: 10px;
+}
+#taxisection .unallocated-student {
+    width: 20%;
+    border-radius: 1px;
+    color: #fff;
+}
+/* unallocated popup*/
+
+.field {
+    margin-left: 20px;
+}
+.field label {
+    font-weight: 400 !important;
+    color: #888;
+}
+.col33 {
+    width: 33% !important;
+}
+.col50 {
+    width: 50% !important;
+}
+.col25 {
+    width: 25% !important;
+}
+.col66 {
+    width: 66% !important;
+}
+.col100 {
+    width: 100% !important;
+}
+.allocated-input {
+    margin-bottom: 1px!important;
+}
+.value {
+    margin-left: 20px;
+}
+/*add taxi*/
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+.skylight-dialog label {
+    width: 40%;
+    vertical-align: middle;
+}
+.skylight-dialog div {
+    display: inline-block;
+    width: 90%;
+}
+.skylight-dialog .form-group,
+.skylight-dialog input {
+    width: 60%;
+    vertical-align: middle;
+}
+/*taxi view*/
+
+#taxisection {
+    float: left;
+    width: 75%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.sort-by {
+    margin: 10px 10px 2px 10px;
+    display: inline-block;
+}
+.sort-by .form-group {
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+.taxis {
+    margin: 4px;
+    width: 99%;
+    border-radius: 7px;
+    display: inline-block;
+    border: solid 1px #CCC;
+    background-color: #eeeded;
+    min-height: 7vh;
+}
+.taxi-gateway {
+    height: 3vh;
+    border-bottom: solid 1px #CCC;
+    border-radius: 1px;
+}
+.taxi-gateway div {
+    display: inline-block;
+    float: right;
+    margin-right: 0.8vw;
+}
+.taxi-name {
+    height: 3vh;
+}
+.taxi-name span,
+.taxi-gateway span {
+    margin-left: 0.8vh;
+}
+.taxi-name-right {
+    display: inline-block;
+    float: right;
+    margin-right: 0.8vw;
+}
+.taxi-name-left {
+    display: inline-block;
+    float: left;
+    margin-left: 0.8vw;
+}
+/*takeoff*/
+
+#loadingTakeOff {
+    position: fixed;
+    z-index: 999;
+    overflow: show;
+    margin: auto;
+    top: 60px;
+    left: 0;
+    bottom: 0%;
+    right: 0;
+    background-image: -webkit-linear-gradient(rgba(2, 2, 2, 0.5), rgba(2, 2, 2, 0.5));
+    background-image: -moz-linear-gradient(rgba(2, 2, 2, 0.5), rgba(2, 2, 2, 0.5));
+    background-image: -o-linear-gradient(rgba(2, 2, 2, 0.5), rgba(2, 2, 2, 0.5));
+    background-image: linear-gradient(rgba(2, 2, 2, 0.5), rgba(2, 2, 2, 0.5));
+    background-color: #222;
+}
+/*takeoff*/
+
+.flighttext {
+    color: white;
+    font-size: 25px;
+    background-size: 100%;
+    position: fixed;
+    bottom: 60%;
+    left: 30%;
+    z-index: 1000;
+}
+.searchscreentext
+{
+      bottom: 40%!important
+}
+
+.searchscreen
+{
+      bottom: 30%!important
+}
+.flight {
+    width: 100px;
+    height: 100px;
+    background: url("http://cdn.1001freedownloads.com/vector/thumb/84314/airliner.png") center no-repeat;
+    background-size: 100%;
+    position: fixed;
+    bottom: 50%;
+    right: 0;
+    z-index: 1000;
+}
+.flight.run {
+    animation: landFlight linear 10s infinite;
+}
+@keyframes landFlight {
+    0% {
+        -ms-transform: translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg);
+    }
+    20% {
+        -ms-transform: translate(-200px, -1px) rotate(0deg);
+        -moz-transform: translate(-200px, -1px) rotate(0deg);
+        -webkit-transform: translate(-200px, -1px) rotate(0deg);
+        transform: translate(-200px, -1px) rotate(0deg);
+    }
+    30% {
+        -ms-transform: translate(-250px, -2px) rotate(0deg);
+        -moz-transform: translate(-250px, -2px) rotate(0deg);
+        -webkit-transform: translate(-250px, -2px) rotate(0deg);
+        transform: translate(-250px, -2px) rotate(0deg);
+    }
+    38% {
+        -ms-transform: translate(-300px, -3px) rotate(10deg);
+        -moz-transform: translate(-300px, -3px) rotate(10deg);
+        -webkit-transform: translate(-300px, -3px) rotate(10deg);
+        transform: translate(-300px, -3px) rotate(10deg);
+    }
+    39% {
+        -ms-transform: translate(-310px, -4px) rotate(15deg);
+        -moz-transform: translate(-310px, -4px) rotate(15deg);
+        -webkit-transform: translate(-310px, -4px) rotate(15deg);
+        transform: translate(-310px, -4px) rotate(15deg);
+    }
+    40% {
+        -ms-transform: translate(-320px, -10px) rotate(20deg);
+        -moz-transform: translate(-320px, -10px) rotate(20deg);
+        -webkit-transform: translate(-320px, -10px) rotate(20deg);
+        transform: translate(-320px, -10px) rotate(20deg);
+    }
+    50% {
+        -ms-transform: translate(-400px, -20px) rotate(20deg);
+        -moz-transform: translate(-400px, -20px) rotate(20deg);
+        -webkit-transform: translate(-400px, -20px) rotate(20deg);
+        transform: translate(-400px, -20px) rotate(20deg);
+    }
+    60% {
+        -ms-transform: translate(-500px, -30px) rotate(20deg);
+        -moz-transform: translate(-500px, -30px) rotate(20deg);
+        -webkit-transform: translate(-500px, -30px) rotate(20deg);
+        transform: translate(-500px, -30px) rotate(20deg);
+    }
+    100% {
+        -ms-transform: translate(-1000px, -100px) rotate(20deg);
+        -moz-transform: translate(-1000px, -100px) rotate(20deg);
+        -webkit-transform: translate(-1000px, -100px) rotate(20deg);
+        transform: translate(-1000px, -100px) rotate(20deg);
+    }
+}
+/*footer*/
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: white;
+    height: 40px;
+}
+
+.flight-search-footer
+{
+    background-color: #666!important;
+}
+.status-mark {
+    float: right;
+    margin-top: 6px;
+    margin-right: 20px;
+}
+.status-mark div {
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.status-mark div.status-ls:before {
+    content: '';
+    background: #4CA5AF;
+    position: absolute;
+    right: -18px;
+    height: 15px;
+    width: 15px;
+    top: 0px;
+}
+.status-mark div.status-ay:before {
+    content: '';
+    background: #B5CC9D;
+    position: absolute;
+    right: -18px;
+    height: 15px;
+    width: 15px;
+    top: 0px;
+}
+.status-mark div.status-junior:before {
+    background-image: linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -o-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -moz-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -webkit-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    background-image: -ms-linear-gradient(to bottom, #8CB4E3 50%, #79A0CD 50%);
+    content: '';
+    position: absolute;
+    right: -18px;
+    height: 15px;
+    width: 15px;
+    top: 0px;
+}
+/* popup styles*/
+
+.popup-container {
+    width: 100%!important;
+    background-color: white;
+    overflow-y: auto;
+}
+.popup-button-container {
+    width: 100%!important;
+    background-color: transparent;
+    padding: 2px 10px 2px 2px;
+}
+.react-grid {
+    height: calc(100vh - 270px);
+    height: -webkit-calc(100vh - 270px);
+    height: -moz-calc(100vh - 270px);
+}
+/* Ag grid section*/
+
+.ag-bl-full-height {
+    overflow-x:hidden!important;
+}
+
+div.ag-root {
+    -webkit-user-select: text!important;
+    -moz-user-select: text!important;
+    -ms-user-select: text!important;
+    user-select: text!important;
+}
+.ag-blue .ag-cell-no-focus {
+    border-right: 1px solid #CCC!important;
+    border-top: none!important;
+    border-left: none!important;
+    border-bottom: 1px solid #CCC!important;
+}
+.ag-blue {
+    font-size: 12px!important;
+}
+.ag-blue .ag-row-odd {
+    background-color: #f7f7f7!important;
+}
+.ag-blue .ag-header {
+    color: #fff!important;
+    background: #666!important;
+    border: 1px solid #fff!important;
+    font-weight: 600!important;
+}
+.ag-blue .ag-header-cell {
+    border-right: 1px solid #CCC!important;
+}
+.ag-blue .ag-root {
+    border: 1px solid #CCC!important;
+}
+.ag-cell a {
+    color: #000!important;
+    text-decoration: underline!important;
+}
+.ag-blue .ag-row-selected {
+    background-color: #ccc !important;
+}
+.ag-blue .ag-header-icon {
+    color: #000!important;
+    stroke: none!important;
+    fill: #000!important;
+}
+
+/*accommodation poup*/
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 100px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+   height: 150px;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h4 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup input {
+ width:100%;
+}
+.popup div {
+margin:10px;
+}
+
+.popup .btn {
+margin:10px;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+
+@media(max-width:1200px) {
+    .search .list-unstyled-field {
+        width: 10%;
+    }
+}
+@media(max-width:1024px) {
+    .flighttext {
+        font-size: 22px;
+        background-size: 100%;
+        position: fixed;
+        bottom: 60%;
+        left: 30%;
+        z-index: 1000;
+    }
+    .top-menu {
+        margin-left: 100px;
+    }
+    .allocation {
+        height: calc(100vh - 200px);
+        height: -webkit-calc(100vh - 200px);
+        height: -moz-calc(100vh - 200px);
+    }
+    
+    .search {
+        height: 100px;
+    }
+
+    .flight-search {
+        height: 270px;
+    }
+   
+    .react-grid {
+        height: calc(100vh - 370px);
+        height: -webkit-calc(100vh - 370px);
+        height: -moz-calc(100vh - 370px);
+    }
+
+    .search .list-unstyled {
+    margin: 0;
+    height:70px;
+}
+    .search .list-unstyled-field {
+        width: 18%;
+    }
+    .search .list-unstyled-check {
+        width: 20%;
+    }
+    .search .list-unstyled-value {
+        width: 25%;
+    }
+    #unallocated {
+        width: 30%;
+        font-size: 1.6vh;
+    }
+    #taxisection {
+        width: 70%;
+        font-size: 1.6vh;
+    }
+    .allocated-student-detail .skylight-dialog {
+        width: 80%!important;
+        left: 10%!important;
+        right: 0!important;
+        top: 5%!important;
+        margin: 0!important;
+    }
+    #unallocated .skylight-dialog {
+        width: 50%!important;
+        left: 25%!important;
+        right: 0!important;
+        top: 25%!important;
+        margin: 0!important;
+    }
+    .footer .skylight-dialog {
+        width: 50%!important;
+        left: 30%!important;
+        right: 0!important;
+        top: 25%!important;
+        margin: 0!important;
+    }
+}
+@media(max-width:768px) {
+    .flighttext {
+        font-size: 22px;
+        background-size: 100%;
+        position: fixed;
+        bottom: 60%;
+        left: 20%;
+        z-index: 1000;
+    }
+    .App {
+        font-size: 1.5vh;
+    }
+    .top-menu {
+        margin-left: 50px;
+    }
+    .title {
+        font-size: 20px;
+        margin-left: 10px;
+        margin-top: 12px;
+    }
+    .menu-link {
+        font-size: 14px;
+        margin: 15px;
+    }
+    .menu-link img {
+        height: 14px;
+    }
+    .quicklinks a.profile {
+        font-size: 14px;
+        font-weight: bolder;
+        top: 5px;
+    }
+    .mainmenu .glyphicon {
+        font-size: 14px;
+    }
+    .allocation {
+        height: calc(100vh - 200px);
+        height: -webkit-calc(100vh - 200px);
+        height: -moz-calc(100vh - 200px);
+    }
+
+    .search {
+        height: 100px;
+    }
+    .flight-search {
+        height: 270px;
+    }
+    
+    .search .list-unstyled-field {
+        width: 18%;
+    }
+    .search .list-unstyled-value {
+        width: 25%;
+    }
+    .kpi .form-group {
+        width: 100px;
+    }
+    #unallocated {
+        width: 40%;
+        font-size: 1.4vh;
+    }
+    #taxisection {
+        width: 60%;
+        font-size: 1.4vh;
+    }
+    .even,
+    .odd {
+        float: left;
+        width: 98%;
+    }
+    .allocated-student-detail .skylight-dialog {
+        width: 80%!important;
+        left: 10%!important;
+        right: 0!important;
+        top: 15%!important;
+        margin: 0!important;
+    }
+    #unallocated .skylight-dialog {
+        width: 60%!important;
+        left: 20%!important;
+        right: 0!important;
+        top: 20%!important;
+        margin: 0!important;
+    }
+    .footer .skylight-dialog {
+        width: 60%!important;
+        left: 20%!important;
+        right: 0!important;
+        top: 30%!important;
+        margin: 0!important;
+    }
+}
+@media(max-width:480px) {
+    .App {
+        font-size: 12px;
+    }
+    .form-control {
+        font-size: 12px;
+        height: 28px;
+    }
+    .react-date-field {
+        font-size: 12px;
+    }
+    .react-date-field__picker {
+        font-size: 12px;
+    }
+    .hidden-desk {
+        display: block !important;
+    }
+    .hidden-mob {
+        display: none !important;
+    }
+    .hidden-desk-inline {
+        display: inline !important;
+    }
+    .hidden-mob-inline {
+        display: none !important;
+    }
+    .quicklinks a.profile {
+        font-size: 20px;
+    }
+    .mainmenu .glyphicon {
+        font-size: 20px;
+        top: 6px;
+    }
+    #profilemenu ul li a {
+        border-bottom: solid 1px #aaa;
+    }
+    .form-group {
+        margin-bottom: 1px;
+    }
+    .allocation {
+        height: calc(100vh - 140px);
+        height: -webkit-calc(100vh - 140px);
+        height: -moz-calc(100vh - 140px);
+    }
+
+    .search {
+        height: 40px;
+        padding: 0px;
+    }
+    .search .btn {
+        margin-left: 20%;
+        top: -10px;
+    }
+    .pull-right {
+        margin-right: 10%;
+    }
+    .search .list-unstyled-field {
+        width: 40%;
+    }
+    .search .list-unstyled-value {
+        width: 50%;
+    }
+    .unallocated-student-detail {
+        width: 100%;
+    }
+    #unallocated {
+        width: 40%;
+        font-size: 11px;
+    }
+    #taxisection {
+        width: 60%;
+        font-size: 11px;
+    }
+    .even,
+    .odd {
+        float: left;
+        width: 98%;
+    }
+    .allocated-student-detail .skylight-dialog {
+        font-size: 12px!important;
+        width: 100%!important;
+        left: 0!important;
+        right: 0!important;
+        top: 0%!important;
+        margin: 0!important;
+    }
+    #unallocated .skylight-dialog {
+        width: 80%!important;
+        left: 10%!important;
+        right: 0!important;
+        top: 20%!important;
+        margin: 0!important;
+    }
+    .footer .skylight-dialog {
+        width: 80%!important;
+        left: 10%!important;
+        right: 0!important;
+        top: 30%!important;
+        margin: 0!important;
+    }
+    .search .skylight-dialog {
+        width: 100%!important;
+        left: 0%!important;
+        right: 0!important;
+        top: 20%!important;
+        margin: 0!important;
+        color: #000!important;
+    }
+    .mainmenu .skylight-dialog {
+        width: 1200%!important;
+        left: 0%!important;
+        right: 0!important;
+        top: 20%!important;
+        margin: 0!important;
+        margin-left: -1150%!important;
+        color: #000!important;
+    }
+    .mainmenu .skylight-dialog .skylight-dialog {
+        width: 100%!important;
+        left: 0%!important;
+        right: 0!important;
+        top: 20%!important;
+        margin: 0!important;
+        margin-left: 0%!important;
+        color: #000!important;
+    }
+    .modified-student-detail {
+        width: 100%!important;
+    }
+    .modified-student-detail-button {
+        width: 100%!important;
+        float: right;
+    }
+    .skylight-dialog div {
+        width: 90%;
+    }
+    .allocated-student-detail {
+        border: 0.1vh solid #ccc;
+    }
+    .allocated-input .form-control {
+        font-size: 12px;
+        width: 90%!important;
+        height: 22px;
+        margin-bottom: 2px;
+    }
+    .kpi {
+        margin: 0px 0px 40px 0px;
+    }
+    .taxi-name {
+        height: 4.5vh;
+    }
+}
+
+.ag-row .form-group{
+    height:100%;
+}
+
+.ag-row .form-control{
+    height:100%;
+    padding:0px;
+    border-radius: 0px;
+}
