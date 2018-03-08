@@ -65,10 +65,22 @@ border-radius: 25px;
 padding: 2px 5px 2px 5px;
 &:hover {text-decoration: underline;}
 `;
+const Destination = styled.label`
+font-weight: bold;
+font-size: 12px;
+border: 1px solid #D8D8D8;
+border-radius: 25px;
+padding: 3px 5px 3px 5px;
+max-width:120px;
+display: inline-block; 
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+&:hover {text-decoration: underline;}
+`;
 const Menu = styled.ul`
 top: 58px;
-right: 0px;
-width: 25%;
+${props => props.userProfile ? 'width: 15%;right: 140px;'  : 'width: 25%;right: 0px;'}
 display: inline-block;
 background-color: white;
 box-shadow:  0px 2px 8px 0px rgba(0,0,0,0.2);
@@ -80,7 +92,7 @@ border-radius: 10px;
 font-weight: bold;
 overflow-y: auto;
 overflow-x: hidden;
-height: 100%;
+height: auto;
 max-height: calc(100vh - 75px);
 `;
 const MenuName = styled.div`
@@ -112,7 +124,7 @@ const ArrowUp = styled.div`
 border-left: 9px solid transparent;
 border-right: 9px solid transparent;
 border-bottom: 9px solid #f3f3f3;
-right: 45px;
+${props => props.userProfile ? 'right: 180px;'  : 'right: 45px;'}
 position: absolute;
 `;
 const Setting = styled.div`
@@ -156,7 +168,8 @@ class ABHeader extends React.Component {
         searchBox: false,
         showUserDetails: false,
         searchText: '',
-        clearSearch: false
+        clearSearch: false,
+        showDestinations:false
       };
       
     this.logout = this.logout.bind(this);
@@ -223,15 +236,33 @@ class ABHeader extends React.Component {
     this.setState({ searchText: '', clearSearch: true});
     this.props.onQuickSearchInputChange('');
     if(this.props.quickFilterType!='')
-    this.highlightFilterType(this.props.quickFilterType);
-    this.props.filterResult(this.props.quickFilterType,3);
+    {
+        this.highlightFilterType(this.props.quickFilterType);
+        this.props.filterResult(this.props.quickFilterType,3);
+    }
+    this.props.filterResult(this.props.quickFilterType,4);
+    
   }
   selectDestination(code) {
     this.setState({ showUserDetails: false });
     this.props.onDestinationChange(code);
   }
 
+  showDestinations(){
+      this.setState({ showDestinations:true});
+  }
+
+  hideDestinations(){
+    this.setState({ showDestinations:false});
+  }
+
   render() {  
+
+    let selectDestinationName ="";
+    this.props.destinations && this.props.destinations.map((dest) => {
+        if(this.props.selectedDestination == dest.Code)
+         selectDestinationName = dest.Name
+    });
             return (
                 <HeaderGrid>
                     <StudentFilterGrid index={1}>
@@ -276,17 +307,28 @@ class ABHeader extends React.Component {
                         </SearchImage>
                         <UserProfile index={5}>
                             <UserName onMouseEnter={this.showUserInfo.bind(this)} onClick={this.showUserInfo.bind(this)}>{this.props.user.Name}</UserName>
-                           {this.state.showUserDetails && this.props.userProfile ? <ArrowUp /> : null}
+                            {this.state.showUserDetails && this.props.userProfile ? <ArrowUp userProfile/> : null}
                         </UserProfile>
+                        <UserProfile >
+                        <Destination onMouseEnter={this.showDestinations.bind(this)} onClick={this.showDestinations.bind(this)}>{selectDestinationName}</Destination>
+                        {this.state.showDestinations ? <ArrowUp /> : null}
+                         </UserProfile>
                     </Setting>
 
-                    {this.state.showUserDetails && this.props.userProfile ?
-                        <Menu onMouseLeave={this.hideUserInfo.bind(this)}>
+                   { this.state.showUserDetails && this.props.userProfile ? 
+                        <Menu userProfile onMouseLeave={this.hideUserInfo.bind(this)}>
                             <MenuName>Profile</MenuName>
                             <List onClick={this.logout.bind(this)}>
                                
                                 <Name logout> <Image logout src={require("../../images/AdminBoard/logout.svg")} />Logout</Name>                    
                             </List>
+                           
+                        </Menu>
+                        : null
+                    }     
+
+                   {this.state.showDestinations ?
+                        <Menu onMouseLeave={this.hideDestinations.bind(this)}>
                             <MenuName destination>Destination</MenuName>
                             { this.props.destinations && this.props.destinations.map((dest, index) => {
                                 return (                                 
@@ -294,11 +336,10 @@ class ABHeader extends React.Component {
                                         <Name destination selected={((this.props.selectedDestination == '' && index == 0) || (this.props.selectedDestination == dest.Code))? true: false}>{dest.Name}</Name>                                        
                                     </List>                                    
                                 );
-                            })}
-                        </Menu>
-                        :
-                        null
-                    }                    
+                            })}    
+                            </Menu>
+                            :null
+                        }           
                 </HeaderGrid>                
             );
         } 

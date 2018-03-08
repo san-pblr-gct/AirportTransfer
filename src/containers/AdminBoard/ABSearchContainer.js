@@ -42,8 +42,8 @@ class ABSearchContainer extends React.Component {
         super(props, context);
         this.state = {
             studentSearch: {
-                ProductCode: "APP,CLT,IA,LS,LSP,SCH",
-                ProgramCode: "AL,AY,AYP,CC,CY,EFC,GCSE,IAP,IB,IBP,ILC,ILC,ILS,ILS25,ILSP,ILSP,MLY,MLYP,PHS,PRW,UP,UPP",
+                ProductCode: "APP,CLT,LS,LSP,SCH",
+                ProgramCode: "AY,AYP,CC,CY,EFC,ILC,ILS,ILS25,ILSP,MLY,MLYP,PHS,PRW,UP,UPP",
                 WeekFrom: this.getWeekFrom(),
                 WeekTo: this.getWeekTo(),
                 IsConfirmed: "false",
@@ -364,6 +364,11 @@ class ABSearchContainer extends React.Component {
                         timeout: 5000
                     });
                     this.onClearSelection();
+                    this.setState({
+                        'Jira':Object.assign({},this.state.Jira,{
+                            JiraAssignTo:""
+                        })
+                    });
                 }
                 else {
                     this.setState({
@@ -839,13 +844,13 @@ class ABSearchContainer extends React.Component {
                 });
                 break;
         }
-        this.setState(
-            {
-                'totalAppliedFilterCount': 0,
-                'dateToFilterChangedCount': 0,
-                'dateFromFilterChangedCount': 0
-            }
-        )
+        // this.setState(
+        //     {
+        //         'totalAppliedFilterCount': 0,
+        //         'dateToFilterChangedCount': 0,
+        //         'dateFromFilterChangedCount': 0
+        //     }
+        // )
         this.setState({
             'studentSearch': Object.assign({}, this.state.studentSearch, {
                 Status: selectedbookingtype,
@@ -1132,8 +1137,8 @@ class ABSearchContainer extends React.Component {
             expandRightMenu: false,
             IsSearchParameterChanged: true,
             'studentSearch': Object.assign({}, this.state.studentSearch, {
-                WeekFrom: this.state.studentSearch.BookingType == "2" ? this.state.studentSearch.WeekFrom : this.getWeekFrom(),
-                WeekTo: this.state.studentSearch.BookingType == "2" ? this.state.studentSearch.WeekTo : this.getWeekTo()
+                WeekFrom: this.state.studentSearch.BookingType == "2" ? this.state.studentSearch.WeekFrom : this.state.studentSearch.WeekFrom? this.state.studentSearch.WeekFrom: this.getWeekFrom(),
+                WeekTo: this.state.studentSearch.BookingType == "2" ? this.state.studentSearch.WeekTo : this.state.studentSearch.WeekTo? this.state.studentSearch.WeekTo:this.getWeekTo()
             }),
             'selectedOfflineFilters': Object.assign({}, this.state.selectedOfflineFilters, {
                 Accommodationtype: "All",
