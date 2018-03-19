@@ -117,7 +117,6 @@ export function getAdminBoardAddLogSuccess(data,jira) {
     };
 }
 export function AdminBoardAddLog(jira,mailMessage, token) {
-    debugger;
     var jiraLog = { 
         'jira': jira,
         'mailMessage':mailMessage

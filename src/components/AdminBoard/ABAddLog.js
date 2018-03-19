@@ -8,6 +8,145 @@ import SkyLight from 'react-skylight';
 import TextInput from '../common/TextInput';
 import styled from 'styled-components';
 
+const ModalHeader = styled.h2`
+font-size: 20px;
+font-weight: bold;
+padding-left: 2%;
+margin-top: -2%;
+border-bottom: 1px solid #e5e5e5;
+padding: 15px;`;
+
+const LogRows = styled.div`
+width:90%!important;
+padding-left:5%;`;
+
+const LogLabel = styled.div`
+color: #999;
+font-weight: normal;
+font-size:14px;
+margin: 0;
+padding-left: 12px;
+margin-top:10px;
+width:45%!important;
+`;
+
+const LogCommentsTxt = styled.div`
+margin-left: 6%;
+margin-top: 3%;`;
+
+const LogEmailLabel = styled.p`
+margin: 0 0 10px;
+ `;
+const LogCheckBox = styled.input.attrs({
+  type: 'checkbox'
+}) `
+margin: 4px 0 0;
+margin-top: 1px;
+line-height: normal;
+margin-right: -25% !important;
+margin-left: -23% !important;
+margin-top: 3%;
+@supports (zoom:2.5) {
+   zoom: 2.5;
+}
+@supports (-ms-ime-align: auto) {
+  transform: scale(0.5);
+  zoom:0 !important;
+}
+`;
+
+const CheckBox = styled.div`
+box-sizing: content-box;
+width: 15px !important;
+height: 15px;
+border: 1px solid rgba(0, 0, 0, 0.33);
+margin-right: 10px;
+margin-left: 5px;
+`;
+const Tick = styled.div`
+display: inline-block !important;
+width: 4px !important;
+height: 9px;
+border: solid rgba(0, 128, 0, 0.65);
+border-width: 0 2px 2px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+margin: 0% 0% 13% 35%;
+`;
+
+const LogComments = styled.div`
+border-radius:7px;
+&:focus{
+  border-color: #66afe9;
+  border-radius:7px;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}`;
+
+const LogSaveButton = styled.button`
+border-radius: 20px;
+text-align: center;
+cursor: pointer;
+border: 1px solid #B4B4B4;
+color: #6B6B6B;
+padding-left: 12%;
+padding-bottom: 3%;
+padding-top: 3%;
+padding-right: 12%;
+margin-left: 200%;
+margin-right: 10%;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+background-color: white;
+width: 100px;
+&:hover{
+  border: 1px solid #10D345;
+  background-color: #10D345;
+  color: #fff;
+  box-shadow: none;
+}`;
+
+
+const LogCancelButton = styled.button`
+border-radius: 20px;
+text-align: center;
+cursor: pointer;
+border: 1px solid #B4B4B4;
+color: #6B6B6B;
+padding-left: 10%;
+padding-bottom: 3%;
+padding-top: 3%;
+padding-right: 10%;
+margin-left: 225%;
+margin-right: 10%;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+background-color: white;
+width: 100px;
+&:hover{
+  border: 1px solid red;
+  background-color: red;
+  color: #fff;
+  box-shadow: none;
+}`;
+
+const LogButtonDiv = styled.div`
+width:inherit!important;
+margin-top:3%;
+margin-bottom:3%;
+`;
+
+const LogButtons = styled.div`
+display:inline-block;`
+
 class ABAddLog extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -122,6 +261,8 @@ class ABAddLog extends React.Component {
     this.props.closeLogPopup();
 
   }
+
+  
   render() {
     var inProgressPopup = {
       height: '75%',
@@ -135,144 +276,7 @@ class ABAddLog extends React.Component {
     var today = new Date();
     var tomorrow = new Date(today.getFullYear(), today.getMonth(), (today.getDate() + 1));
 
-    const ModalHeader = styled.h2`
-    font-size: 20px;
-    font-weight: bold;
-    padding-left: 2%;
-    margin-top: -2%;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 15px;`;
-
-    const LogRows = styled.div`
-    width:90%!important;
-    padding-left:5%;`;
-
-    const LogLabel = styled.div`
-    color: #999;
-    font-weight: normal;
-    font-size:14px;
-    margin: 0;
-    padding-left: 12px;
-    margin-top:10px;
-    width:45%!important;
-    `;
-
-    const LogCommentsTxt = styled.div`
-    margin-left: 6%;
-    margin-top: 3%;`;
-
-    const LogEmailLabel = styled.p`
-    margin: 0 0 10px;
-     `;
-    const LogCheckBox = styled.input.attrs({
-      type: 'checkbox'
-    }) `
-    margin: 4px 0 0;
-    margin-top: 1px;
-    line-height: normal;
-    margin-right: -25% !important;
-    margin-left: -23% !important;
-    margin-top: 3%;
-    @supports (zoom:2.5) {
-       zoom: 2.5;
-    }
-    @supports (-ms-ime-align: auto) {
-      transform: scale(0.5);
-      zoom:0 !important;
-    }
-  `;
-
-    const CheckBox = styled.div`
-  box-sizing: content-box;
-  width: 15px !important;
-  height: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.33);
-  margin-right: 10px;
-  margin-left: 5px;
-  `;
-    const Tick = styled.div`
-  display: inline-block !important;
-  width: 4px !important;
-  height: 9px;
-  border: solid rgba(0, 128, 0, 0.65);
-  border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  margin: 0% 0% 13% 35%;
-  `;
-
-    const LogComments = styled.div`
-    border-radius:7px;
-    &:focus{
-      border-color: #66afe9;
-      border-radius:7px;
-      outline: 0;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-    }`;
-
-    const LogSaveButton = styled.button`
-    border-radius: 20px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #B4B4B4;
-    color: #6B6B6B;
-    padding-left: 12%;
-    padding-bottom: 3%;
-    padding-top: 3%;
-    padding-right: 12%;
-    margin-left: 200%;
-    margin-right: 10%;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    background-color: white;
-    width: 100px;
-    &:hover{
-      border: 1px solid #10D345;
-      background-color: #10D345;
-      color: #fff;
-      box-shadow: none;
-    }`;
-
-
-    const LogCancelButton = styled.button`
-    border-radius: 20px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #B4B4B4;
-    color: #6B6B6B;
-    padding-left: 10%;
-    padding-bottom: 3%;
-    padding-top: 3%;
-    padding-right: 10%;
-    margin-left: 225%;
-    margin-right: 10%;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    background-color: white;
-    width: 100px;
-    &:hover{
-      border: 1px solid red;
-      background-color: red;
-      color: #fff;
-      box-shadow: none;
-    }`;
-
-    const LogButtonDiv = styled.div`
-    width:inherit!important;
-    margin-top:3%;
-    margin-bottom:3%;
-    `;
-
-    const LogButtons = styled.div`
-    display:inline-block;`
+   
 
     var divStyle = {
       margin: "0 0 0 6%"

@@ -57,16 +57,16 @@ export const AB_LOAD_STUDENTJIRA_SUCCESS="AB_LOAD_STUDENTJIRA_SUCCESS";
 export const JIRALOG = "https://jiralogs.ef.com/";
 
 // export const API="http://localhost/LSTransportationAppAPI/";
- export const ABAPI = "http://localhost/AdminBoardAPI/";
+// export const ABAPI = "http://localhost/AdminBoardAPI/";
 // export const SIGNALR="http://localhost/LSTransportation.SignalR/signalr";
 // export const LOGINAPI="http://localhost/LoginAPI/";
 
  export const API = "http://54.254.235.64/LSTransportationAppAPI/";
- //export const ABAPI = "http://54.254.235.64/AdminBoardAPI/";
+ export const ABAPI = "http://54.254.235.64/AdminBoardAPI/";
  export const SIGNALR = "http://54.254.235.64/LSTransportation.SignalR/signalr";
  export const LOGINAPI = "http://54.254.235.64/LoginAPI/";
 
-// export const API = "https://emergency.ef.com/lstransportationappapi/";
-// export const ABAPI = "https://elektrasvc.ef.com/adminboardapi/";
-// export const SIGNALR = "https://emergency.ef.com/lstransportation.signalr/signalr";
-// export const LOGINAPI = "https://elektrasvc.ef.com/loginapi/";
+//export const API = "https://emergency.ef.com/lstransportationappapi/";
+//export const ABAPI = "https://elektrasvc.ef.com/adminboardapi/";
+//export const SIGNALR = "https://emergency.ef.com/lstransportation.signalr/signalr";
+//export const LOGINAPI = "https://elektrasvc.ef.com/loginapi/";

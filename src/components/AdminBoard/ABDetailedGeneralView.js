@@ -131,7 +131,7 @@ class ABDetailedGeneralView extends React.Component {
   }
 
   componentWillReceiveProps(nextprops) {
-    if (nextprops.selectedStudentData.selectedSalesBookingId != this.props.selectedStudentData.selectedSalesBookingId)
+    if ((nextprops.selectedStudentData.selectedSalesBookingId != this.props.selectedStudentData.selectedSalesBookingId) || (nextprops.studentDetailedInfoResult && nextprops.studentDetailedInfoResult.ChangeHistory && this.props.studentDetailedInfoResult.ChangeHistory && nextprops.studentDetailedInfoResult.ChangeHistory.length != this.props.studentDetailedInfoResult.ChangeHistory.length))
       {
         this.state.showDates = false,
         this.state.latestDate = "",
@@ -480,8 +480,8 @@ class ABDetailedGeneralView extends React.Component {
                         <FieldDataGrid>Status<FieldData change={AccStatusTrack} onClick={this.openHistory.bind(this, AccStatusTrack)}>{AccStatus}</FieldData></FieldDataGrid>
                         <FieldDataGrid>Start Date<FieldData change={AccStartWeekTrack} onClick={this.openHistory.bind(this, AccStartWeekTrack)}>{studentAccom.StartDate != null ? moment(studentAccom.StartDate).format("DD MMM YYYY") : ''}</FieldData></FieldDataGrid>
                         <FieldDataGrid>End Date<FieldData change={AccEndWeekTrack} onClick={this.openHistory.bind(this, AccEndWeekTrack)}>{studentAccom.EndDate != null ? moment(studentAccom.EndDate).format("DD MMM YYYY") : ''}</FieldData></FieldDataGrid>
-                        <FieldDataGrid>No. Nights<FieldData change={AccWeeksTrack} onClick={this.openHistory.bind(this, AccWeeksTrack)}>{studentAccom.NoOfNights != null && studentAccom.NoOfNights != '' ? studentAccom.NoOfNights : ''}</FieldData></FieldDataGrid>
-                        {this.state.showFields ? <FieldDataGrid>No. Of Weeks <FieldData>{AccWeeks}</FieldData></FieldDataGrid> : "" }
+                        {this.state.showFields ? <FieldDataGrid>No. Of Nights<FieldData>{studentAccom.NoOfNights != null && studentAccom.NoOfNights != '' ? studentAccom.NoOfNights : ''}</FieldData></FieldDataGrid> : "" }
+                        <FieldDataGrid>No. Of Weeks <FieldData change={AccWeeksTrack} onClick={this.openHistory.bind(this, AccWeeksTrack)}>{AccWeeks}</FieldData></FieldDataGrid>
                       </div>
                     );
                   })}

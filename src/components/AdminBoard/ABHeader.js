@@ -65,22 +65,10 @@ border-radius: 25px;
 padding: 2px 5px 2px 5px;
 &:hover {text-decoration: underline;}
 `;
-const Destination = styled.label`
-font-weight: bold;
-font-size: 12px;
-border: 1px solid #D8D8D8;
-border-radius: 25px;
-padding: 3px 5px 3px 5px;
-max-width:120px;
-display: inline-block; 
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
-&:hover {text-decoration: underline;}
-`;
 const Menu = styled.ul`
 top: 58px;
-${props => props.userProfile ? 'width: 15%;right: 140px;'  : 'width: 25%;right: 0px;'}
+right: 0px;
+width: 25%;
 display: inline-block;
 background-color: white;
 box-shadow:  0px 2px 8px 0px rgba(0,0,0,0.2);
@@ -92,7 +80,7 @@ border-radius: 10px;
 font-weight: bold;
 overflow-y: auto;
 overflow-x: hidden;
-height: auto;
+height: 100%;
 max-height: calc(100vh - 75px);
 `;
 const MenuName = styled.div`
@@ -124,7 +112,7 @@ const ArrowUp = styled.div`
 border-left: 9px solid transparent;
 border-right: 9px solid transparent;
 border-bottom: 9px solid #f3f3f3;
-${props => props.userProfile ? 'right: 180px;'  : 'right: 45px;'}
+right: 45px;
 position: absolute;
 `;
 const Setting = styled.div`
@@ -155,194 +143,169 @@ margin-left:${props => props.color == "black" ? "0px" : "-6px"};
 `;
 
 class ABHeader extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-        all: true,
-        u18: false,
-        ju: false,
-        t4: false,
-        i20:false,
-        up: false,
-        intern: false,
-        searchBox: false,
-        showUserDetails: false,
-        searchText: '',
-        clearSearch: false,
-        showDestinations:false
-      };
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            all: true,
+            u18: false,
+            ju: false,
+            t4: false,
+            i20:false,
+            up: false,
+            intern: false,
+            searchBox: false,
+            showUserDetails: false,
+            searchText: '',
+            clearSearch: false
+        };
       
-    this.logout = this.logout.bind(this);
-    this.highlightFilterType= this.highlightFilterType.bind(this);
-  }
-
-  componentWillReceiveProps(nextprops) {
-     if (nextprops.quickFilterType == '')
-      {
-        this.highlightFilterType('All');
-        this.setState({
-            searchText: ''
-        })
-      }  
-      else{
-        this.highlightFilterType(nextprops.quickFilterType);
-      }   
-  }
-
-  highlightFilterType(type){
-    switch (type) {   
-        case "All": this.setState({ all: true,  u18: false, ju: false, t4: false, i20:false, up: false, intern: false });
-            break;         
-        case "U18": this.setState({ all: false,  u18: true, ju: false, t4: false, i20:false, up: false, intern: false });
-            break;
-        case "JU": this.setState({ all: false,  u18: false, ju: true, t4: false, i20:false, up: false, intern: false });
-            break;
-        case "T4":this.setState({ all: false,  u18: false, ju: false, t4: true, i20:false, up: false, intern: false });
-            break;
-        case "I20":this.setState({ all: false,  u18: false, ju: false, t4: false, i20:true, up: false, intern: false });
-            break;
-        case "UP":this.setState({ all: false,  u18: false, ju: false, t4: false, i20:false, up: true, intern: false });
-            break;
-        case "INT":this.setState({ all: false,  u18: false, ju: false, t4: false, i20:false, up: false, intern: true });
-            break;
+        this.logout = this.logout.bind(this);
+        this.highlightFilterType= this.highlightFilterType.bind(this);
     }
-  }
-  selectFilter(type)
-  {
-    this.highlightFilterType(type);
-    this.props.filterResult(type, 0);
-  }
-  toggleSearchBox() {
-    this.setState({ searchBox: !this.state.searchBox });
-  }
-  showUserInfo() {
-    this.setState({ showUserDetails: true });
-    this.props.setUserProfileState();
-  }
-  hideUserInfo() {
-    this.setState({ showUserDetails: false });
-  }
-  logout() {
-    this.props.ABSearchActions.logout();
-  }
-  getSearchText(text) {
-      if (text != undefined && text.target != undefined)
-      {
-          this.setState({ searchText: text.target.value, clearSearch: false});
-          this.props.onQuickSearchInputChange(text.target.value);
-      }
-  }
-  ClearSearchText() {
-    this.setState({ searchText: '', clearSearch: true});
-    this.props.onQuickSearchInputChange('');
-    if(this.props.quickFilterType!='')
+
+    componentWillReceiveProps(nextprops) {
+        if (nextprops.quickFilterType == '')
+        {
+            this.highlightFilterType('All');
+            this.setState({
+                searchText: ''
+            })
+        }  
+        else{
+            this.highlightFilterType(nextprops.quickFilterType);
+        }   
+    }
+
+    highlightFilterType(type){
+        switch (type) {   
+            case "All": this.setState({ all: true,  u18: false, ju: false, t4: false, i20:false, up: false, intern: false });
+                break;         
+            case "U18": this.setState({ all: false,  u18: true, ju: false, t4: false, i20:false, up: false, intern: false });
+                break;
+            case "JU": this.setState({ all: false,  u18: false, ju: true, t4: false, i20:false, up: false, intern: false });
+                break;
+            case "T4":this.setState({ all: false,  u18: false, ju: false, t4: true, i20:false, up: false, intern: false });
+                break;
+            case "I20":this.setState({ all: false,  u18: false, ju: false, t4: false, i20:true, up: false, intern: false });
+                break;
+            case "UP":this.setState({ all: false,  u18: false, ju: false, t4: false, i20:false, up: true, intern: false });
+                break;
+            case "INT":this.setState({ all: false,  u18: false, ju: false, t4: false, i20:false, up: false, intern: true });
+                break;
+        }
+    }
+    selectFilter(type)
     {
-        this.highlightFilterType(this.props.quickFilterType);
-        this.props.filterResult(this.props.quickFilterType,3);
+        this.highlightFilterType(type);
+        this.props.filterResult(type, 0);
     }
-    this.props.filterResult(this.props.quickFilterType,4);
+    toggleSearchBox() {
+        this.setState({ searchBox: !this.state.searchBox });
+    }
+    showUserInfo() {
+        this.setState({ showUserDetails: true });
+        this.props.setUserProfileState();
+    }
+    hideUserInfo() {
+        this.setState({ showUserDetails: false });
+    }
+    logout() {
+        this.props.ABSearchActions.logout();
+    }
+    getSearchText(text) {
+        if (text != undefined && text.target != undefined)
+        {
+            this.setState({ searchText: text.target.value, clearSearch: false});
+            this.props.onQuickSearchInputChange(text.target.value);
+        }
+    }
+    ClearSearchText() {
+        this.setState({ searchText: '', clearSearch: true});
+        this.props.onQuickSearchInputChange('');
+        if(this.props.quickFilterType!='')
+        {
+            this.highlightFilterType(this.props.quickFilterType);
+            this.props.filterResult(this.props.quickFilterType,3);
+        }
+        this.props.filterResult(this.props.quickFilterType,4);
     
-  }
-  selectDestination(code) {
-    this.setState({ showUserDetails: false });
-    this.props.onDestinationChange(code);
-  }
+    }
+    selectDestination(code) {
+        this.setState({ showUserDetails: false });
+        this.props.onDestinationChange(code);
+    }
 
-  showDestinations(){
-      this.setState({ showDestinations:true});
-  }
-
-  hideDestinations(){
-    this.setState({ showDestinations:false});
-  }
-
-  render() {  
-
-    let selectDestinationName ="";
-    this.props.destinations && this.props.destinations.map((dest) => {
-        if(this.props.selectedDestination == dest.Code)
-         selectDestinationName = dest.Name
-    });
-            return (
-                <HeaderGrid>
-                    <StudentFilterGrid index={1}>
+    render() { 
+        return (
+            <HeaderGrid>
+                <StudentFilterGrid index={1}>
                         <StudentFilter index={1} selected={this.state.all} onClick={this.selectFilter.bind(this, 'All')}>All</StudentFilter>
                         <StudentFilter index={2} selected={this.state.u18} onClick={this.selectFilter.bind(this, 'U18')}>Under 18</StudentFilter>
                         <StudentFilter index={3} selected={this.state.ju} onClick={this.selectFilter.bind(this, 'JU')}>Junior</StudentFilter>
                         <StudentFilter index={4} selected={this.state.up} onClick={this.selectFilter.bind(this, 'UP')}>UP</StudentFilter>
                         <StudentFilter index={5} selected={this.state.intern} onClick={this.selectFilter.bind(this, 'INT')}>Internship</StudentFilter>                                                
-                        {
-                           this.props.selectedDestinationCode.startsWith('GB-') ? 
-                           <StudentFilter index={6} selected={this.state.t4} onClick={this.selectFilter.bind(this, 'T4')}>T4</StudentFilter>
-                           : this.props.selectedDestinationCode.startsWith('US-') ?
-                            <StudentFilter index={6} selected={this.state.i20} onClick={this.selectFilter.bind(this, 'I20')}>I-20</StudentFilter>
-                            :null
-                        }
+                            {
+                                this.props.selectedDestinationCode.startsWith('GB-') ? 
+                                <StudentFilter index={6} selected={this.state.t4} onClick={this.selectFilter.bind(this, 'T4')}>T4</StudentFilter>
+                               : this.props.selectedDestinationCode.startsWith('US-') ?
+                                <StudentFilter index={6} selected={this.state.i20} onClick={this.selectFilter.bind(this, 'I20')}>I-20</StudentFilter>
+                                :null
+                            }
                         
-                    </StudentFilterGrid>
+                            </StudentFilterGrid>
                     
-                    <Setting index={2}>
-                        {this.state.searchBox ?
-                            <Box index={1}>
-                                <SearchImage box>
-                                    {this.state.searchText == '' ? 
-                                        <Image index={1} search src={require("../../images/AdminBoard/search_icon.svg")} onClick={this.toggleSearchBox.bind(this)} /> 
-                                        : <Image index={1} search src={require("../../images/AdminBoard/white.png")} />
-                                    }
-                                    <SearchInput index={2} onChange={this.getSearchText.bind(this)} value={this.state.searchText?this.state.searchText:this.props.filteredsearchText} autoFocus />
+                            <Setting index={2}>
+                                {this.state.searchBox ?
+                                    <Box index={1}>
+                                        <SearchImage box>
+                                            {this.state.searchText == '' ? 
+                                                <Image index={1} search src={require("../../images/AdminBoard/search_icon.svg")} onClick={this.toggleSearchBox.bind(this)} /> 
+                                                : <Image index={1} search src={require("../../images/AdminBoard/white.png")} />
+                                                }
+                                    <SearchInput index={2} onChange={this.getSearchText.bind(this)} value={this.props.filteredsearchText} autoFocus />
                                     {this.state.searchText != '' || this.props.filteredsearchText !=''? 
                                         <Image index={0} close src={require("../../images/AdminBoard/cancel.svg")} onClick={this.ClearSearchText.bind(this)} /> 
                                         : <Image  index={0} close src={require("../../images/AdminBoard/white.png")}/> 
-                                    }
+                                        }
                                 </SearchImage>  
                             </Box>
                             :                            
                             <SearchImage index={1}>                                 
                                 <Image default src={require("../../images/AdminBoard/search.svg")} onClick={this.toggleSearchBox.bind(this)} />
                             </SearchImage>    
-                        }
+                                }
                         <SearchImage index={3}>                            
                             <Image default src={require("../../images/AdminBoard/filter_default.svg")} onClick={this.props.toggleStudentFilterView}/>
                             {this.props.totalAppliedFilterCount > 0 ? <Sup color="red">{this.props.totalAppliedFilterCount}</Sup> : null}
                         </SearchImage>
                         <UserProfile index={5}>
                             <UserName onMouseEnter={this.showUserInfo.bind(this)} onClick={this.showUserInfo.bind(this)}>{this.props.user.Name}</UserName>
-                            {this.state.showUserDetails && this.props.userProfile ? <ArrowUp userProfile/> : null}
-                        </UserProfile>
-                        <UserProfile >
-                        <Destination onMouseEnter={this.showDestinations.bind(this)} onClick={this.showDestinations.bind(this)}>{selectDestinationName}</Destination>
-                        {this.state.showDestinations ? <ArrowUp /> : null}
-                         </UserProfile>
-                    </Setting>
+                                {this.state.showUserDetails && this.props.userProfile ? <ArrowUp /> : null}
+                                </UserProfile>
+                            </Setting>
 
-                   { this.state.showUserDetails && this.props.userProfile ? 
-                        <Menu userProfile onMouseLeave={this.hideUserInfo.bind(this)}>
-                            <MenuName>Profile</MenuName>
-                            <List onClick={this.logout.bind(this)}>
+                                {this.state.showUserDetails && this.props.userProfile ?
+                                    <Menu onMouseLeave={this.hideUserInfo.bind(this)}>
+                                        <MenuName>Profile</MenuName>
+                                        <List onClick={this.logout.bind(this)}>
                                
-                                <Name logout> <Image logout src={require("../../images/AdminBoard/logout.svg")} />Logout</Name>                    
-                            </List>
-                           
+                                            <Name logout> <Image logout src={require("../../images/AdminBoard/logout.svg")} />Logout</Name>                    
+                                        </List>
+                                        <MenuName destination>Destination</MenuName>
+                                    { this.props.destinations && this.props.destinations.map((dest, index) => {
+                                        return (                                 
+                                            <List padding key={dest.Code} onClick={this.selectDestination.bind(this, dest.Code)}>
+                                                <Name destination selected={((this.props.selectedDestination == '' && index == 0) || (this.props.selectedDestination == dest.Code))? true: false}>{dest.Name}</Name>                                        
+                                            </List>                                    
+                                            );
+                                })}
                         </Menu>
-                        : null
-                    }     
-
-                   {this.state.showDestinations ?
-                        <Menu onMouseLeave={this.hideDestinations.bind(this)}>
-                            <MenuName destination>Destination</MenuName>
-                            { this.props.destinations && this.props.destinations.map((dest, index) => {
-                                return (                                 
-                                    <List padding key={dest.Code} onClick={this.selectDestination.bind(this, dest.Code)}>
-                                        <Name destination selected={((this.props.selectedDestination == '' && index == 0) || (this.props.selectedDestination == dest.Code))? true: false}>{dest.Name}</Name>                                        
-                                    </List>                                    
-                                );
-                            })}    
-                            </Menu>
-                            :null
-                        }           
+                        :
+                        null
+                        }                    
                 </HeaderGrid>                
             );
-        } 
+                        } 
 }
 
 ABHeader.propTypes = {    

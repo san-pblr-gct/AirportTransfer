@@ -67,7 +67,7 @@ const Image = styled.img`
 ${props => props.print ? 'padding: 0% 6% 0% 10%;float: left;height: 20px;' : ''}
 ${props => props.excel ? 'padding: 0% 6% 0% 10%;float: left;height: 20px;' : ''}
 ${props => props.support ? 'width: 32px;margin-right: 10px;' : ''}
-${props => props.cancel ? 'width: 15px;padding-left: 5%;' : ''}
+${props => props.cancel ? '@supports (width: -webkit-fill-available){width: 15px;}padding-left: 5%;' : ''}
 ${props => props.help ? 'width: 18px;border-radius: 30px;margin-right: 6%;' : ''}
 `;
 const Frame = styled.div`

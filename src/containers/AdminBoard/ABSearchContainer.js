@@ -199,16 +199,12 @@ class ABSearchContainer extends React.Component {
         if (nextProps.studentSearchResults !== this.props.studentSearchResults) {
             //this.setState({ "selectedStudents": [] });
             this.filterResult(this.state.quickFilterType, 0, nextProps.studentSearchResults, true);
-        this.onQuickSearchInputChange(this.state.searchText, nextProps.studentSearchResults,true);
-           
-        }
-        if (nextProps.studentSearchResults != null && nextProps.studentSearchResults.length > 0 && this.state.quickFilterType == '') {
-            this.OfflineFilterApply(this.state.selectedOfflineFilters, nextProps.studentSearchResults,false);
+         
         }
         if (this.props.destinations && this.props.destinations.length > 0 && this.state.studentSearch.Destination == "") {
             this.searchStudent();
         }
-        
+
         if (this.props.studentJiraDetailsResult !== nextProps.studentJiraDetailsResult)
             this.setState({ studentJiraDetailsResult: [...nextProps.studentJiraDetailsResult.sort(this.orderByProperty([{ "field": "JiraDateCreated", "order": "desc" }]))] });
     }
@@ -418,15 +414,15 @@ class ABSearchContainer extends React.Component {
         }
 
     }
-    onAssignedToChange(event) {    
+    onAssignedToChange(event) {
         if (event.target.value !== "") {
             this.setState({
                 'Jira': Object.assign({}, this.state.Jira, {
-                    JiraAssignTo: event.target.value               
+                    JiraAssignTo: event.target.value
                 })
             });
         }
-      }
+    }
 
     saveLogDetails(selectedLogTypeCode, selectedLogCategory, selectedLogHandleIn, selectedLogDueDate, selectedLogEmailSalesOffice, selectedLogComments) {
         Alert.closeAll();
@@ -537,7 +533,7 @@ class ABSearchContainer extends React.Component {
         // }       
     }
     OfflineFilterApply(selectedOfflineFilters, data,dataChanged=false) {
-        let groups2 = [];
+         let groups2 = [];
         if (selectedOfflineFilters.groupcodes != "") {
             let GroupCodes = selectedOfflineFilters.groupcodes.split(',');
             for (var i = 0; i < GroupCodes.length; i++) {
@@ -550,17 +546,7 @@ class ABSearchContainer extends React.Component {
             }
         }
         else {
-            if (this.state.searchText != '') {
-                let filterResult=[];
-                filterResult =[...this.state.filteredResults];
-                for(var t=0; t< filterResult.length; t++){
-                    for(var p=0;p< data.length; p++){
-                        if(filterResult[t].BookingId == data[p].BookingId)
-                             groups2.push(filterResult[t]);
-                    }
-                }
-              }else
-            groups2 = data;
+                groups2 = data;
         }
         if (selectedOfflineFilters.selectedAccommodationtype.length > 0) {
             if (selectedOfflineFilters.selectedAccommodationtype == "" || selectedOfflineFilters.selectedAccommodationtype == "All") {
@@ -632,7 +618,7 @@ class ABSearchContainer extends React.Component {
     }
 
     onProductChange(code) {
-         if (code !== "" && code !== "All") {
+        if (code !== "" && code !== "All") {
             this.setState({
                 'studentSearch': Object.assign({}, this.state.studentSearch, { ProductCode: code.toString() }),
                 'IsSearchParameterChanged': true
@@ -820,49 +806,45 @@ class ABSearchContainer extends React.Component {
         switch (event.target.innerHTML) {
             case 'New': selectedbookingtype = "new"; confirmed = "false";
                 this.setState({
-                    typenewUnCon: true, typenewCon: false, typemodCon: false, typemodUnCon: false, typecax: false, searchText: '', searchInputText: ''
+                    typenewUnCon: true, typenewCon: false, typemodCon: false, typemodUnCon: false, typecax: false
                 });
                 break;
             case 'Recently confirmed': selectedbookingtype = "new"; confirmed = "true";
                 this.setState({
-                    typenewUnCon: false, typenewCon: true, typemodCon: false, typemodUnCon: false, typecax: false, searchText: '', searchInputText: ''
+                    typenewUnCon: false, typenewCon: true, typemodCon: false, typemodUnCon: false, typecax: false
                 });
                 break;
             case 'Modified confirmed': selectedbookingtype = "mod"; confirmed = "true";
                 this.setState({
-                    typenewUnCon: false, typenewCon: false, typemodCon: true, typemodUnCon: false, typecax: false, searchText: '', searchInputText: ''
+                    typenewUnCon: false, typenewCon: false, typemodCon: true, typemodUnCon: false, typecax: false
                 });
                 break;
             case 'Modified unconfirmed': selectedbookingtype = "mod"; confirmed = "false";
                 this.setState({
-                    typenewUnCon: false, typenewCon: false, typemodCon: false, typemodUnCon: true, typecax: false, searchText: '', searchInputText: ''
+                    typenewUnCon: false, typenewCon: false, typemodCon: false, typemodUnCon: true, typecax: false
                 });
                 break;
             case 'CAX': selectedbookingtype = "cax"; confirmed = "false";
                 this.setState({
-                    typenewUnCon: false, typenewCon: false, typemodCon: false, typemodUnCon: false, typecax: true, searchText: '', searchInputText: ''
+                    typenewUnCon: false, typenewCon: false, typemodCon: false, typemodUnCon: false, typecax: true
                 });
                 break;
         }
-        // this.setState(
-        //     {
-        //         'totalAppliedFilterCount': 0,
-        //         'dateToFilterChangedCount': 0,
-        //         'dateFromFilterChangedCount': 0
-        //     }
-        // )
-        this.setState({
+         this.setState({
             'studentSearch': Object.assign({}, this.state.studentSearch, {
                 Status: selectedbookingtype,
                 IsConfirmed: confirmed
             }), 'bookingType': selectedbookingtype
+            , 'searchText': '', 'searchInputText': ''
         }, this.searchStudent);
     }
-    onQuickSearchInputChange(searchItem,filterData=[],dataChanged=false) {
+    onQuickSearchInputChange(searchItem, filterData = [], dataChanged = false) {
         let groups2 = [];
-      
+
         if (searchItem === "" || searchItem == null) {
-            if (this.state.searchInputText != '' || this.state.searchInputText !== 'All' || this.state.quickFilterType != '')
+            if (dataChanged)
+                groups2 = filterData;
+            else if (this.state.searchInputText != '' || this.state.searchInputText !== 'All' || this.state.quickFilterType != '')
                 groups2 = this.state.SearchInputFilterResult;
             else
                 groups2 = this.state.filteredResults;
@@ -871,23 +853,24 @@ class ABSearchContainer extends React.Component {
         else {
             this.setState({ 'searchText': searchItem, searchInputText: '' });
             searchItem = searchItem.toLowerCase();
-            if (this.state.searchInputText != '' || this.state.searchInputText !== 'All' || this.state.quickFilterType != '')
-             {
-                if(filterData.length > 0)
-                groups2 = filterData
+            if (this.state.searchInputText != '' || this.state.searchInputText !== 'All' || this.state.quickFilterType != '') {
+                if (dataChanged)
+                    groups2 = filterData
+                else if (filterData.length > 0)
+                    groups2 = filterData
                 else
-                groups2 = this.state.SearchInputFilterResult;
-             } 
+                    groups2 = this.state.SearchInputFilterResult;
+            }
             else
                 groups2 = this.state.filteredResults;
 
             groups2 = groups2.filter(m => (m.StudentName !== null && m.StudentName.toLowerCase().includes(searchItem)) ||
-            m.Age.toString().includes(searchItem) || (m.Nationality !== null && m.Nationality.toLowerCase().includes(searchItem))
-            || (m.ProgramCode !== null && m.ProgramCode.toLowerCase().includes(searchItem)) || (m.Course !== null && m.Course.toLowerCase().includes(searchItem))
-            || (m.ArticleCode !== null && m.ArticleCode.toLowerCase().includes(searchItem))
-            || m.StartWeekCode.toString().includes(searchItem) || m.EndWeekCode.toString().includes(searchItem)
-            || (m.SalesBookingId !== null && m.SalesBookingId.toLowerCase().includes(searchItem))
-            || (m.GroupCode !== null && m.GroupCode.toLowerCase().includes(searchItem)));
+                m.Age.toString().includes(searchItem) || (m.Nationality !== null && m.Nationality.toLowerCase().includes(searchItem))
+                || (m.ProgramCode !== null && m.ProgramCode.toLowerCase().includes(searchItem)) || (m.Course !== null && m.Course.toLowerCase().includes(searchItem))
+                || (m.ArticleCode !== null && m.ArticleCode.toLowerCase().includes(searchItem))
+                || m.StartWeekCode.toString().includes(searchItem) || m.EndWeekCode.toString().includes(searchItem)
+                || (m.SalesBookingId !== null && m.SalesBookingId.toLowerCase().includes(searchItem))
+                || (m.GroupCode !== null && m.GroupCode.toLowerCase().includes(searchItem)));
         }
         if (this.state.excludeInProgress)
             groups2 = [...groups2.filter(m => !m.IsInProgress)];
@@ -900,7 +883,7 @@ class ABSearchContainer extends React.Component {
             this.onClearSelection();
             this.onStudentViewClick('');
         }
-       
+
     }
 
     orderByProperty(parameters) {
@@ -946,7 +929,7 @@ class ABSearchContainer extends React.Component {
             filterData = [...this.state.SearchInputFilterResult]
         }
         if (this.state.searchText != '' && indicator != 4 && !dataChanged) {
-                filterData =[...this.state.SearchFilterResult]
+            filterData =[...this.state.SearchFilterResult]
         }
         switch (inputFilter) {
             case "U18": filterData = filterData.filter(obj1 => obj1.Age < 18);
@@ -1001,6 +984,7 @@ class ABSearchContainer extends React.Component {
             this.onClearSelection();
             this.onStudentViewClick('');
         }
+        else { this.onQuickSearchInputChange(this.state.searchText, filterData, true); }
     }
 
     onStudentViewClick(student) {
