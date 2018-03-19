@@ -362,7 +362,7 @@ class ABStudentInfo extends React.Component {
                     <Tag index={2} tag={this.props.Student.IsXtraNight ? "on" : "off"} > Ex.Night</Tag>
                     <Tag index={3} tag={this.props.Student.IsTransfer ? "on" : "off"} >Transfer</Tag>
                     <Tag index={4} tag={this.props.Student.IsMatchingnotes ? "on" : "off"} >Match</Tag>
-                    <Tag index={5} tag={this.props.Student.ISVisaReq ? "on" : "off"} >Visa</Tag>
+                    <Tag index={5} tag={this.props.Student.ISVisaReq ? "on" : "off"} >{this.props.selectedDestinationCode.startsWith('US-')?"I-20":"Visa"}</Tag>
                     <Tag index={6} tag={this.props.Student.IsMeal ? "on" : "off"} >Meal</Tag>
                     <Tag index={7} tag={this.props.Student.IsActivity ? "on" : "off"} >Activity</Tag>
                     {this.props.bookingType == 'mod' || this.props.bookingType == 'cax' ?
